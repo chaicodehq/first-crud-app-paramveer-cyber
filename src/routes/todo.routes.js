@@ -21,6 +21,13 @@ const router = express.Router();
  * PATCH  /:id/toggle    → toggleTodo (use validateObjectId middleware)
  * DELETE /:id           → deleteTodo (use validateObjectId middleware)
  */
+router.post("/", createTodo);
+router.get("/", listTodos);
+router.get("/:id", validateObjectId, getTodo);
+router.patch("/:id", validateObjectId, updateTodo);
+router.patch("/:id/toggle", validateObjectId, toggleTodo);
+router.delete("/:id", validateObjectId, deleteTodo);
+
 
 // Your routes here
 
